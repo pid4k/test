@@ -1864,6 +1864,7 @@ local script = UI["c6"]
 	local Settings = mainFrame.Settings.Scroll
 	local whitelistkeyframe = mainFrame.Whitelistkey
 	if httprequest then
+		if imtestingrn then return end
 		function SendMessage(url, message)
 			local http = game:GetService("HttpService")
 			local headers = {
