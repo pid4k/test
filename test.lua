@@ -1,6 +1,6 @@
 -- // GUI TO LUA (MODIFIED) \\ --
 
--- // INSTANCES: 198 | SCRIPTS: 1 | MODULES: 2 \\ --
+-- // INSTANCES: 197 | SCRIPTS: 1 | MODULES: 2 \\ --
 
 local UI = {}
 
@@ -1503,20 +1503,17 @@ UI["c1"]["PaddingRight"] = UDim.new(0.5, 0)
 UI["c1"]["PaddingLeft"] = UDim.new(0.03, 0)
 UI["c1"]["PaddingBottom"] = UDim.new(0.3, 0)
 
-UI["c2"] = Instance.new("UIDragDetector", UI["2"])
+UI["c2"] = Instance.new("ModuleScript", UI["1"])
+UI["c2"]["Name"] = [[Notifier]]
+
+UI["c3"] = Instance.new("UICorner", UI["1"])
 
 
-UI["c3"] = Instance.new("ModuleScript", UI["1"])
-UI["c3"]["Name"] = [[Notifier]]
+UI["c4"] = Instance.new("ModuleScript", UI["1"])
+UI["c4"]["Name"] = [[DraggableObject]]
 
-UI["c4"] = Instance.new("UICorner", UI["1"])
-
-
-UI["c5"] = Instance.new("ModuleScript", UI["1"])
-UI["c5"]["Name"] = [[DraggableObject]]
-
-UI["c6"] = Instance.new("LocalScript", UI["1"])
-UI["c6"]["Name"] = [[MainScript]]
+UI["c5"] = Instance.new("LocalScript", UI["1"])
+UI["c5"]["Name"] = [[MainScript]]
 
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
@@ -1533,9 +1530,9 @@ local function require(Module:ModuleScript)
     return G2L_REQUIRE(Module);
 end
 
-G2L_MODULES[UI["c3"]] = {
+G2L_MODULES[UI["c2"]] = {
 Closure = function()
-    local script = UI["c3"]
+    local script = UI["c2"]
 local Notifier = {}
 local tweenService = game:GetService("TweenService")
 local Notifyframe = script.Parent.MainFrame.Notifyframe
@@ -1578,9 +1575,9 @@ return Notifier
 
 end
 }
-G2L_MODULES[UI["c5"]] = {
+G2L_MODULES[UI["c4"]] = {
 Closure = function()
-    local script = UI["c5"]
+    local script = UI["c4"]
 --[[
 	@Author: Spynaz
 	@Description: Enables dragging on GuiObjects. Supports both mouse and touch.
@@ -1708,8 +1705,8 @@ return DraggableObject
 
 end
 }
-local function SCRIPT_c6()
-local script = UI["c6"]
+local function SCRIPT_c5()
+local script = UI["c5"]
 	local Gui = script.Parent
 	local mainfolder = "BeanzHub/"
 	local paste = "lsStatus.txt"
@@ -2306,6 +2303,6 @@ local script = UI["c6"]
 	
 	-- TELEPOTZ
 end
-task.spawn(SCRIPT_c6)
+task.spawn(SCRIPT_c5)
 
 return UI["1"], require;
