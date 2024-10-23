@@ -1936,10 +1936,12 @@ local script = UI["c6"]
 		local hasautoexecute = "Without a key"
 		local dontsend = false
 		local color = 15548997
+		if not imtestingrn then
 		if checkvariable(status,4) == key then
 			hasautoexecute = "With silver access"
 			color = 12370112
-		end
+			end
+			end
 		local customembed = {
 			["title"] = "A script has been executed",
 			["description"] = tostring(player.Name .. " has executed ".. mainFrame.BackgroundTitle.Title.Text),
